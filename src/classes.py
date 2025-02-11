@@ -28,7 +28,10 @@ class Spotistats(spotipy.Spotify):
         all_ids = []
         tracks = self.playlist_items(id, fields="next,items.track.id")
         while tracks:
-            all_ids += [t["track"]["id"] for t in tracks["items"]]
+            try:
+                all_ids += [t["track"]["id"] for t in tracks["items"] if t["track"]]
+            except:
+                pass
             if tracks["next"]:
                 tracks = self.next(tracks)
             else:
