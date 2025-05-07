@@ -1,15 +1,17 @@
 import spotipy, requests
+import streamlit as st
 
 class Spotistats(spotipy.Spotify):
     
-    def __init__(self, env):
+    def __init__(self):
         scope = "user-library-read,user-top-read,playlist-modify-private,playlist-read-private"
         super().__init__(
             auth_manager=spotipy.oauth2.SpotifyOAuth(
                 scope=scope,
-                client_id=env["CLIENT_ID"],
-                client_secret=env["CLIENT_SECRET"],
-                redirect_uri=env["REDIRECT_URI"]
+                client_id=st.secrets["CLIENT_ID"],
+                client_secret=st.secrets["CLIENT_SECRET"],
+                redirect_uri=st.secrets["REDIRECT_URI"],
+                open_browser=False
             )
         )
         

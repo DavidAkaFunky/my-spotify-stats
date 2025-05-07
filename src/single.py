@@ -1,4 +1,3 @@
-import os
 import pandas as pd
 import streamlit as st
 import plotly.express as px
@@ -18,7 +17,7 @@ def plot_all(df):
                 fig.update_xaxes(range=[0, 1])
             st.plotly_chart(fig, use_container_width=True)
 
-sp = Spotistats(os.environ)
+sp = Spotistats()
 
 st.title("Single Playlist Track Analysis")
 with st.form("my_form"):

@@ -1,4 +1,4 @@
-import os, re
+import re
 import pandas as pd
 import streamlit as st
 import plotly.express as px
@@ -18,7 +18,7 @@ def plot_all(df):
 
 st.title("Multiple Playlist Track Analysis")
 
-sp = Spotistats(os.environ)
+sp = Spotistats()
 pattern = r"\d{2}\/\d{4}"
 playlists = list(
     map(
