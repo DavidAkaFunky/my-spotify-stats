@@ -10,8 +10,7 @@ class Spotistats(spotipy.Spotify):
                 scope=scope,
                 client_id=st.secrets["CLIENT_ID"],
                 client_secret=st.secrets["CLIENT_SECRET"],
-                redirect_uri=st.secrets["REDIRECT_URI"],
-                open_browser=False
+                redirect_uri=st.secrets["REDIRECT_URI"]
             )
         )
         
